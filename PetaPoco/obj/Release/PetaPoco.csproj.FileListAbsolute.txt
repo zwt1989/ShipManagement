@@ -1,0 +1,8 @@
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\bin\Release\PetaPoco.dll.config
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\bin\Release\PetaPoco.dll
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\bin\Release\PetaPoco.pdb
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\bin\Release\Npgsql.dll
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\bin\Release\System.Data.SqlServerCe.dll
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\obj\Release\PetaPoco.dll
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\obj\Release\PetaPoco.pdb
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\obj\Release\PetaPoco.csprojResolveAssemblyReference.cache

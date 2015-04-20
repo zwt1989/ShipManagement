@@ -1,0 +1,2056 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GoMusic.Utilities.Web</name>
+    </assembly>
+    <members>
+        <member name="T:GoMusic.Utilities.Web.Mvc.JsPageResult">
+            <summary>
+            注册 Javascript 脚本到一个空白的页面的结果
+            </summary>
+        </member>
+        <member name="F:GoMusic.Utilities.Web.Mvc.JsPageResult.DEFAULT_RESPONSE_PAGE_TEMPLATE">
+            <summary>
+            默认的响应页面模板
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsPageResult.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="script">脚本</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsPageResult.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="script">脚本</param>
+            <param name="pageTitle">页面标题</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsPageResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            重写执行结果
+            </summary>
+            <param name="context">控制器上下文</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsPageResult.GetHtmlPageCode(System.Web.Mvc.ControllerContext)">
+            <summary>
+            得到 Html 页面的代码
+            </summary>
+            <param name="context">控制器上下文</param>
+            <returns></returns>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsPageResult.PageTitle">
+            <summary>
+            设置或获取网页的标题
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsPageResult.Script">
+            <summary>
+            页面脚本
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsPageResult.ContentEncoding">
+            <summary>
+            设置或获取页面的编码
+            </summary>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Mvc.CookieTempDataProvider">
+            <summary>
+            Cookie 临时数据提供程序
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.CookieTempDataProvider.SaveTempData(System.Web.Mvc.ControllerContext,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            保存临时数据
+            </summary>
+            <param name="controllerContext">控制器上下文</param>
+            <param name="values">要保存的值</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.CookieTempDataProvider.LoadTempData(System.Web.Mvc.ControllerContext)">
+            <summary>
+            加载临时数据
+            </summary>
+            <param name="controllerContext">控制器上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.CookieTempDataProvider.GetCookieValue(System.Web.Mvc.ControllerContext)">
+            <summary>
+            得到 Cookie 里面的值
+            </summary>
+            <param name="controllerContext">控制器上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.CookieTempDataProvider.IssueCookie(System.Web.Mvc.ControllerContext,System.String)">
+            <summary>
+            生成 Cookie
+            </summary>
+            <param name="controllerContext">控制器上下文</param>
+            <param name="value">值</param>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.WebControlHelper">
+            <summary>
+            WebForms 的扩展
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebControlHelper.SetValueForRadioButtonList(System.Web.UI.WebControls.RadioButtonList,System.String)">
+            <summary>
+            给 RadioButtonList 设置值。如果 RadioButtonList 中有多个值和参数 selectedValue 相等，那么只选中第一个
+            </summary>
+            <param name="rbl">RadioButtonList</param>
+            <param name="selectedValue">选中的值</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebControlHelper.GetValueFromRadioButtonList(System.Web.UI.WebControls.RadioButtonList)">
+            <summary>
+            获取 RadioButtonList 的值。如果 RadioButtonList 中有多个值已经选中，那么只取选中的第一个的值。如果都没有选中，则返回 null。
+            </summary>
+            <param name="rbl">RadioButtonList</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebControlHelper.ValidateImgExtensionAndSave(System.Web.UI.WebControls.FileUpload,System.Boolean,System.String,System.String,System.Boolean,System.Double,System.String@,System.String@)">
+            <summary>
+            验证图片的真实类型，并尝试保存图片
+            </summary>
+            <param name="hifile">FileUpload 控件</param>
+            <param name="savedDirPathIsVirtual">图片被保存的目录是虚拟路径吗？true 表示是，false 表示是物理路径</param>
+            <param name="savedDirPath">图片被保存的目录，如果不存在，则创建。如果是虚拟路径则参考的格式为“~/img/upload”。否则，参考的格式为“D:\img\upload”</param>
+            <param name="fileNameWithoutPathAndExtension">保存的图片的文件名，不包含目录名和扩展名</param>
+            <param name="allowFileEmpty">允许上传的文件为空吗</param>
+            <param name="limitedImgSize_MB">限制文件的大小吗？为小于或等于零表示不限制。否则，如果限制，最大允许的大小为多少兆（M）</param>
+            <param name="errorMessage">如果返回值为false，那么将返回的错误消息，否则，为 NULL</param>
+            <param name="fileFullName">如果上传控件有图片，并且格式验证通过，保存成功后，输出被保存的路径。否则，为 NULL</param>
+            <returns>验证结果,true表示成功，false表示失败</returns>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Mvc.JsonpResult">
+            <summary>
+            Jsonp 返回结果
+            </summary>
+        </member>
+        <member name="F:GoMusic.Utilities.Web.Mvc.JsonpResult._defaultCallbackName">
+            <summary>
+            默认的 callback 参数名称
+            </summary>
+        </member>
+        <member name="F:GoMusic.Utilities.Web.Mvc.JsonpResult._defaultPasswordName">
+            <summary>
+            默认的密码的参数名称
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsonpResult.#ctor(System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="data">要序列化为 Jsonp 数据的对象</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsonpResult.#ctor(System.Object,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="data">要序列化为 Jsonp 数据的对象</param>
+            <param name="callbackName">回调函数的名字，如果为空，则默认为 "jsoncallback"</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsonpResult.ValidatePrivilege(System.Web.Mvc.ControllerContext)">
+            <summary>
+            验证权限
+            </summary>
+            <param name="context">控制器上下文</param>
+            <returns>授权是否成功，如果已经授权，则返回 true</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsonpResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            核心处理
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsonpResult.HandleUnAuthorizedRequest(System.Web.Mvc.ControllerContext)">
+            <summary>
+            处理为授权的请求
+            </summary>
+            <param name="context">控制器上下文</param>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsonpResult.Data">
+            <summary>
+            要序列化为 Jsonp 数据的对象
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsonpResult.ContentEncoding">
+            <summary>
+            内容编码
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsonpResult.CallBackName">
+            <summary>
+            回调函数名称
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsonpResult.PasswordName">
+            <summary>
+            密码的参数名称，默认为 "password"
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsonpResult.PasswordValue">
+            <summary>
+            正确的密码值
+            </summary>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Mvc.CookieTempDataControllerFactory">
+            <summary>
+            Cookie 临时数据提供程序的控制器工厂
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.CookieTempDataControllerFactory.#ctor(System.Web.Mvc.IControllerFactory)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="inner">控制器工厂接口</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.CookieTempDataControllerFactory.CreateController(System.Web.Routing.RequestContext,System.String)">
+            <summary>
+            创建控制器
+            </summary>
+            <param name="requestContext">请求上下文</param>
+            <param name="controllerName">控制器的名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.CookieTempDataControllerFactory.GetControllerSessionBehavior(System.Web.Routing.RequestContext,System.String)">
+            <summary>
+            得到控制器中 Session 的行为
+            </summary>
+            <param name="requestContext">请求上下文</param>
+            <param name="controllerName">控制器的名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.CookieTempDataControllerFactory.ReleaseController(System.Web.Mvc.IController)">
+            <summary>
+            释放控制器
+            </summary>
+            <param name="controller">控制器接口</param>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Mvc.Application_ErrorUtils">
+            <summary>
+            处理当应用程序错误时的帮助类
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.Application_ErrorUtils.HandleError(System.Web.HttpContext)">
+            <summary>
+            处理错误
+            </summary>
+            <param name="context">Http 请求上下文</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.Application_ErrorUtils.HandleError(System.Web.HttpContext,System.String,System.String)">
+            <summary>
+            处理错误
+            </summary>
+            <param name="context">Http 请求上下文</param>
+            <param name="controllerName">控制器的名称</param>
+            <param name="actionName">Action 方法的名称</param>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.WebCommonHelper">
+            <summary>
+            Web 操作一般的帮助类
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebCommonHelper.Deserialize``1(System.String)">
+            <summary>
+            反序列化 json
+            </summary>
+            <typeparam name="T">返回的类型</typeparam>
+            <param name="json">json 字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebCommonHelper.TryDeserialize``1(System.String)">
+            <summary>
+            尝试反序列化 json，如果失败，不抛出异常
+            </summary>
+            <typeparam name="T">返回的类型</typeparam>
+            <param name="json">json 字符串</param>
+            <returns>成功返回 json 字符串本来的类型，否则返回 T 的默认值</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebCommonHelper.TryDeserialize``1(System.String,``0)">
+            <summary>
+            尝试反序列化 json，如果失败，不抛出异常
+            </summary>
+            <typeparam name="T">返回的类型</typeparam>
+            <param name="json">json 字符串</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebCommonHelper.Serialize(System.Object)">
+            <summary>
+            序列化对象成 json
+            </summary>
+            <param name="data">要序列化的对象</param>
+            <returns>json 字符串</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebCommonHelper.ValidateImgExtensionAndSave(System.IO.Stream,System.Boolean,System.String,System.String,System.Boolean,System.Double,System.String@,System.String@)">
+            <summary>
+            验证图片的真实类型，并尝试保存图片
+            </summary>
+            <param name="imgStream">图片流</param>
+            <param name="savedDirPathIsVirtual">图片被保存的目录是虚拟路径吗？true 表示是，false 表示是物理路径</param>
+            <param name="savedDirPath">图片被保存的目录，如果不存在，则创建。如果是虚拟路径则参考的格式为“~/img/upload”。否则，参考的格式为“D:\img\upload”</param>
+            <param name="fileNameWithoutPathAndExtension">保存的图片的文件名，不包含目录名和扩展名</param>
+            <param name="allowFileEmpty">允许上传的文件为空吗</param>
+            <param name="limitedImgSize_MB">限制文件的大小吗？为小于或等于零表示不限制。否则，如果限制，最大允许的大小为多少兆（M）</param>
+            <param name="errorMessage">如果返回值为false，那么将返回的错误消息，否则，为 NULL</param>
+            <param name="fileFullName">如果上传控件有图片，并且格式验证通过，保存成功后，输出被保存的路径。否则，为 NULL</param>
+            <returns>验证结果,true表示成功，false表示失败</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebCommonHelper.ValidateImgExtensionAndSave(System.Web.HttpPostedFileBase,System.Boolean,System.String,System.String,System.Boolean,System.Double,System.String@,System.String@)">
+            <summary>
+            验证图片的真实类型，并尝试保存图片
+            </summary>
+            <param name="postedFile">提交的文件信息</param>
+            <param name="savedDirPathIsVirtual">图片被保存的目录是虚拟路径吗？true 表示是，false 表示是物理路径</param>
+            <param name="savedDirPath">图片被保存的目录，如果不存在，则创建。如果是虚拟路径则参考的格式为“~/img/upload”。否则，参考的格式为“D:\img\upload”</param>
+            <param name="fileNameWithoutPathAndExtension">保存的图片的文件名，不包含目录名和扩展名</param>
+            <param name="allowFileEmpty">允许上传的文件为空吗</param>
+            <param name="limitedImgSize_MB">限制文件的大小吗？为小于或等于零表示不限制。否则，如果限制，最大允许的大小为多少兆（M）</param>
+            <param name="errorMessage">如果返回值为false，那么将返回的错误消息，否则，为 NULL</param>
+            <param name="fileFullName">如果上传控件有图片，并且格式验证通过，保存成功后，输出被保存的路径。否则，为 NULL</param>
+            <returns>验证结果,true表示成功，false表示失败</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebCommonHelper.ValidateImgExtensionAndSave(System.Byte[],System.Boolean,System.String,System.String,System.Boolean,System.Double,System.String@,System.String@)">
+            <summary>
+            验证图片的真实类型，并尝试保存图片
+            </summary>
+            <param name="imgContent">图片字节内容</param>
+            <param name="savedDirPathIsVirtual">图片被保存的目录是虚拟路径吗？true 表示是，false 表示是物理路径</param>
+            <param name="savedDirPath">图片被保存的目录，如果不存在，则创建。如果是虚拟路径则参考的格式为“~/img/upload”。否则，参考的格式为“D:\img\upload”</param>
+            <param name="fileNameWithoutPathAndExtension">保存的图片的文件名，不包含目录名和扩展名</param>
+            <param name="allowFileEmpty">允许上传的文件为空吗</param>
+            <param name="limitedImgSize_MB">限制文件的大小吗？为小于或等于零表示不限制。否则，如果限制，最大允许的大小为多少兆（M）</param>
+            <param name="errorMessage">如果返回值为false，那么将返回的错误消息，否则，为 NULL</param>
+            <param name="fileFullName">如果上传控件有图片，并且格式验证通过，保存成功后，输出被保存的路径。否则，为 NULL</param>
+            <returns>验证结果,true表示成功，false表示失败</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebCommonHelper.GetValueFromNameValueCollection``1(System.Collections.Specialized.NameValueCollection,System.String,``0)">
+            <summary>
+            从 NameValueCollection 里面得到参数值
+            </summary>
+            <typeparam name="T">返回值的类型</typeparam>
+            <param name="nameValueCollection">表示可通过键或索引访问的关联 System.String 键和 System.String 值的集合。</param>
+            <param name="key">参数名称</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebCommonHelper.GetValueFromRouteOrOthers``1(System.Web.Routing.RouteData,System.Collections.Specialized.NameValueCollection,System.String,``0)">
+            <summary>
+            从路由或 NameValueCollection 里面得到参数值
+            </summary>
+            <typeparam name="T">返回值的类型</typeparam>
+            <param name="routeData">当前请求的路由数据</param>
+            <param name="nameValueCollection">表示可通过键或索引访问的关联 System.String 键和 System.String 值的集合。</param>
+            <param name="key">参数名称</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebCommonHelper.GetValueFromRouteOrOthers``1(System.Web.Routing.RouteData,System.Collections.Specialized.NameValueCollection,System.Collections.Specialized.NameValueCollection,System.String,``0)">
+            <summary>
+            从路由或 NameValueCollection 里面得到参数值
+            </summary>
+            <typeparam name="T">返回值的类型</typeparam>
+            <param name="routeData">当前请求的路由数据</param>
+            <param name="nameValueCollection1">表示可通过键或索引访问的关联 System.String 键和 System.String 值的集合1。</param>
+            <param name="nameValueCollection2">表示可通过键或索引访问的关联 System.String 键和 System.String 值的集合2。先从集合 1 从找，找不到再从集合 2 中找</param>
+            <param name="key">参数名称</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Mvc.AbstractAuthorizationAttribute">
+            <summary>
+            抽象的只允许经过授权才能访问的 Attribute
+            </summary>
+        </member>
+        <member name="F:GoMusic.Utilities.Web.Mvc.AbstractAuthorizationAttribute._needAuthorize">
+            <summary>
+            是否需要授权才能访问
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.AbstractAuthorizationAttribute.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.AbstractAuthorizationAttribute.#ctor(System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="needAuthorize">是否需要授权才能访问</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.AbstractAuthorizationAttribute.OnAuthorization(System.Web.Mvc.AuthorizationContext)">
+            <summary>
+            实现当开始处理授权时
+            </summary>
+            <param name="filterContext">授权上下文</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.AbstractAuthorizationAttribute.AuthorizeCore(System.Web.HttpContextBase)">
+            <summary>
+            授权核心
+            </summary>
+            <param name="httpContext">Http 上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.AbstractAuthorizationAttribute.OnCacheAuthorization(System.Web.HttpContextBase)">
+            <summary>
+            当缓存授权结果时
+            </summary>
+            <param name="httpContext">Http 上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.AbstractAuthorizationAttribute.HandleUnauthorizedRequest(System.Web.Mvc.AuthorizationContext)">
+            <summary>
+            处理未授权的请求
+            </summary>
+            <param name="filterContext">授权上下文</param>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Mvc.MvcExtensions">
+            <summary>
+            扩展 MVC
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.Action(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            得到当前路由中 Action 的名称
+            </summary>
+            <param name="html"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.Action(System.Web.Mvc.UrlHelper)">
+            <summary>
+            得到当前路由中 Action 的名称
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.Area(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            得到当前路由中 Area 的名称
+            </summary>
+            <param name="html"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.Area(System.Web.Mvc.UrlHelper)">
+            <summary>
+            得到当前路由中 Area 的名称
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.Controller(System.Type)">
+            <summary>
+            得到某个 Controller 的名称（PS：不包含 Controller 后缀），比如 typeof(HomeController).Controller() 将得到 Home。
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.Controller(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            得到当前路由中 controller 的名称（PS：不包含 Controller 后缀）
+            </summary>
+            <param name="html"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.Controller(System.Web.Mvc.UrlHelper)">
+            <summary>
+            得到当前路由中 controller 的名称（PS：不包含 Controller 后缀）
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.GetQueryString(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            从路由或 QueryString 中得到参数，如果没找到返回 String.Empty
+            </summary>
+            <param name="html"></param>
+            <param name="parameterName">参数名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.GetQueryString(System.Web.Mvc.UrlHelper,System.String)">
+            <summary>
+            从路由或 QueryString 中得到参数，如果没找到返回 String.Empty
+            </summary>
+            <param name="url"></param>
+            <param name="parameterName">参数名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.GetQueryString(System.Web.Routing.RequestContext,System.String)">
+            <summary>
+            从路由或 QueryString 中得到参数，如果没找到返回 String.Empty
+            </summary>
+            <param name="requestContext">请求上下文</param>
+            <param name="parameterName">参数名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.GetValueFromRouteOrQueryString``1(System.Web.Mvc.Controller,System.String,``0)">
+            <summary>
+            从路由或 QueryString 里面得到参数值
+            </summary>
+            <typeparam name="T">返回值的类型</typeparam>
+            <param name="controller">当前控制器</param>
+            <param name="key">参数名称</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.GetValueFromRouteOrForms``1(System.Web.Mvc.Controller,System.String,``0)">
+            <summary>
+            从路由或 Forms 里面得到参数值
+            </summary>
+            <typeparam name="T">返回值的类型</typeparam>
+            <param name="controller">当前控制器</param>
+            <param name="key">参数名称</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.GetValueFromRouteOrQueryStringOrForms``1(System.Web.Mvc.Controller,System.String,``0)">
+            <summary>
+            从路由或 QueryString 或 Forms 里面得到参数值
+            </summary>
+            <typeparam name="T">返回值的类型</typeparam>
+            <param name="controller">当前控制器</param>
+            <param name="key">参数名称</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.RenderView(System.Web.Mvc.ControllerBase,System.String,System.Object,System.String)">
+            <summary>
+            立即呈现视图，返回解析后的字符串
+            </summary>
+            <param name="controller">控制器</param>
+            <param name="viewName">视图的名称</param>
+            <param name="model">模型</param>
+            <param name="master">母版页</param>
+            <returns>解析后的字符串</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.SetSerializedValueToTempData(System.Web.Mvc.ControllerBase,System.String,System.Object)">
+            <summary>
+            把对象用 json 序列化组件序列化后保存到 TempData 中
+            </summary>
+            <param name="controller">当前控制器</param>
+            <param name="key">参数名称</param>
+            <param name="value">需要保存的值</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.MvcExtensions.GetDeserializedJsonValueFromTempData``1(System.Web.Mvc.WebViewPage,System.String,``0)">
+            <summary>
+            从 TempData 中得到被反序列化的 json 对应的值
+            </summary>
+            <typeparam name="T">返回值的类型</typeparam>
+            <param name="viewPage">当前视图</param>
+            <param name="key">参数名称</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Mvc.NonAuthenticationAttribute">
+            <summary>
+            表示一个特性，该特性用于限制只能在没有授权的情况下访问（通俗点说：就是没有登录的情况下）
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.NonAuthenticationAttribute.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="actionName">跳转到的 Action 方法的名称</param>
+            <param name="controllerName">跳转到的 控制器 的名称</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.NonAuthenticationAttribute.#ctor(System.String,System.String,System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="actionName">跳转到的 Action 方法的名称</param>
+            <param name="controllerName">跳转到的 控制器 的名称</param>
+            <param name="routeValues">路由值</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.NonAuthenticationAttribute.AuthorizeCore(System.Web.HttpContextBase)">
+            <summary>
+            处理授权核心
+            </summary>
+            <param name="httpContext">Http 请求上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.NonAuthenticationAttribute.HandleUnauthorizedRequest(System.Web.Mvc.AuthorizationContext)">
+            <summary>
+            处理没有通过验证的请求
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.NonAuthenticationAttribute.ActionName">
+            <summary>
+            获取当前要跳转到的 Action 名称
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.NonAuthenticationAttribute.ControllerName">
+            <summary>
+            获取当前要跳转到的 控制器 名称
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.NonAuthenticationAttribute.RouteValues">
+            <summary>
+            获取当前要跳转到控制器方法的路由值
+            </summary>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Html.HtmlOptionResult">
+            <summary>
+            选项的信息
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlOptionResult.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="optionText">选项的文本</param>
+            <param name="optionValue">选项的值</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlOptionResult.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="optionText">选项的文本</param>
+            <param name="optionValue">选项的值</param>
+            <param name="optionSelected">是否选中</param>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Html.HtmlOptionResult.OptionText">
+            <summary>
+            得到选项的文本
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Html.HtmlOptionResult.OptionValue">
+            <summary>
+            得到选项的值
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Html.HtmlOptionResult.OptionSelected">
+            <summary>
+            是否选中
+            </summary>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.WebExtensions">
+            <summary>
+            Web 常见的扩展
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.WebExtensions.HasFile(System.Web.HttpPostedFileBase)">
+            <summary>
+            判断是否有文件
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Mvc.JsMessageResult">
+            <summary>
+            注册 Javascript alert 消息到一个空白的页面的结果
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsMessageResult.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsMessageResult.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="message">消息</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsMessageResult.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="message">消息</param>
+            <param name="redirectToUrl">重定向的地址</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsMessageResult.#ctor(System.String,System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="message">消息</param>
+            <param name="redirectToUrl">重定向的地址</param>
+            <param name="pageTitle">页面的标题</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.JsMessageResult.GetHtmlPageCode(System.Web.Mvc.ControllerContext)">
+            <summary>
+            得到 Html 页面的代码
+            </summary>
+            <param name="context">控制器上下文</param>
+            <returns></returns>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsMessageResult.Message">
+            <summary>
+            Javascript 脚本信息
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsMessageResult.RedirectToUrl">
+            <summary>
+            重定向 URL，默认为 NULL
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsMessageResult.EnableUrlDecode">
+            <summary>
+            是否启用 URL 解码，默认为 false
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsMessageResult.EnableInspactIsLocalUrl">
+            <summary>
+            是否检查当前 URL 是否是当前站点，默认 false
+            </summary>
+        </member>
+        <member name="P:GoMusic.Utilities.Web.Mvc.JsMessageResult.RedirectToUrlOnToUrlIsNotLocalUrl">
+            <summary>
+            如果当前要重定向的 URL 不是当前站点，则需要重定向的地址，默认为 NULL。该参数仅仅当属性 EnableInspactIsLocalUrl 设置为 True 时才生效。
+            </summary>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.StringExtensions">
+            <summary>
+            字符串扩展类
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.StringExtensions.ToHtmlEncode(System.String)">
+            <summary>
+            将字符串转换为 HTML 编码的字符串。
+            </summary>
+            <param name="str">要编码的字符串。</param>
+            <returns>一个已编码的字符串。</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.StringExtensions.ToUrlEncode(System.String)">
+            <summary>
+            将字符串转换为 Url 编码的字符串。
+            </summary>
+            <param name="str">要编码的字符串。</param>
+            <returns>一个已编码的字符串。</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.StringExtensions.ToUrlDecode(System.String)">
+            <summary>
+            将已经为在 URL 中传输而编码的字符串转换为解码的字符串。
+            </summary>
+            <param name="str">要解码的字符串。</param>
+            <returns>一个已解码的字符串。</returns>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.HttpRequestHelper">
+            <summary>
+            HttpRequest 的帮助类
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.HttpRequestHelper.QueryStringForInt(System.Web.HttpRequestBase,System.String,System.Int32)">
+            <summary>
+            得到 QueryString 中指定 Key 的值，并将其转换为 Int 类型（不抛出异常）
+            </summary>
+            <param name="request">当前 HttpRequest</param>
+            <param name="key">参数的 Key</param>
+            <param name="defaultValue">如果转换失败，返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.HttpRequestHelper.QueryStringForInt(System.Web.HttpRequestBase,System.String,System.Int32@)">
+            <summary>
+            得到 QueryString 中指定 Key 的值，并将其转换为 Int 类型（不抛出异常）
+            </summary>
+            <param name="request">当前 HttpRequest</param>
+            <param name="key">参数的 Key</param>
+            <param name="result"> 当此方法返回时，如果转换成功，则包含与 key 所包含的数字等效的 32 位有符号整数值；如果转换失败，则包含零。</param>
+            <returns>指示操作是否成功。成功返回 true，否则返回 false</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.HttpRequestHelper.QueryStringForInt(System.Web.HttpRequestBase,System.String,System.Boolean,System.Int32@)">
+            <summary>
+            得到 QueryString 中指定 Key 的值，并将其转换为 Int 类型
+            </summary>
+            <param name="request">当前 HttpRequest</param>
+            <param name="key">参数的 Key</param>
+            <param name="throwExceptionOnKeyNotFoundOrWrong">当 Key 没有发现或不正确时，是否抛出异常</param>
+            <param name="result"> 当此方法返回时，如果转换成功，则包含与 key 所包含的数字等效的 32 位有符号整数值；如果转换失败，则包含零。</param>
+            <returns>指示操作是否成功。成功返回 true，否则返回 false</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.HttpRequestHelper.IsKeyExistInQueryString(System.Web.HttpRequestBase,System.String)">
+            <summary>
+            判断 QueryString 中是否存在指定的 Key
+            </summary>
+            <param name="request">当前 HttpRequest</param>
+            <param name="key">参数的 Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.HttpRequestHelper.QueryStringForIntList(System.Web.HttpRequestBase,System.String)">
+            <summary>
+            得到 QueryString 中指定 Key 的值，并将其转换为 List&lt;int&gt; 类型，如果参数为空，则返回空集合，错误的值将被忽略。
+            </summary>
+            <param name="request">当前 HttpRequest</param>
+            <param name="key">参数的 Key</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.HttpRequestHelper.QueryStringFor``1(System.Web.HttpRequestBase,System.String,``0)">
+            <summary>
+            得到 QueryString 中指定 Key 的值
+            </summary>
+            <typeparam name="T">变量类型</typeparam>
+            <param name="request">当前 HttpRequest</param>
+            <param name="key">参数的 Key</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.HttpRequestHelper.GetCookieValue``1(System.Web.HttpRequestBase,System.String,System.String,``0)">
+            <summary>
+            得到 Cookie 里面的值，如果没发现 Key 对应的 Cookie 或 它对应的值 转换失败，都将返回默认值
+            </summary>
+            <typeparam name="T">返回值类型</typeparam>
+            <param name="request">当前 HttpRequest</param>
+            <param name="rootCookieKey">顶级 Cookie 的键，不能为 null</param>
+            <param name="cookieKey">子级 Cookie 的键，可为 null。如果为 null，将直接从顶级 Cookie 对应的值</param>
+            <param name="defaultValue">当 Cookie 里面没有值或值不是 T 类型时的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.HttpContextExtensions">
+            <summary>
+            Http 请求上下文扩展
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.HttpContextExtensions.GetEncodedFullUrl(System.Web.HttpContextBase)">
+            <summary>
+            得到当前完整的 Url（带 Url 参数），编码后返回
+            </summary>
+            <param name="httpContext">当前请求上下文</param>
+            <returns></returns>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Mvc.EnumerableExtension">
+            <summary>
+            对 IEnumerable 的扩展
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.EnumerableExtension.ToDropDownListItems``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            生成用于 ASP.NET Mvc 中 DropDownListFor 的 SelectListItem 可枚举的集合
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="source">集合</param>
+            <param name="funText">得到下拉框的 Text 的委托</param>
+            <param name="funValue">得到下拉框的 Value 的委托</param>
+            <param name="selectedValue">选中的值。建议不要设置与模型状态不一致的值，比如当前提交的下拉框中的值为 1，您如果设置 2，那么还是会显示 1，因为 Mvc 默认会从当前上下文中取值</param>
+            <param name="initItems">初始化项，可为 null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.EnumerableExtension.ToCheckBoxListItems``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            生成用于 ASP.NET Mvc 中 CheckBoxListFor 的 SelectListItem 可枚举的集合
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="source">集合</param>
+            <param name="funText">得到复选框的 Text 的委托</param>
+            <param name="funValue">得到复选框的 Value 的委托</param>
+            <param name="selectedValues">选中的值。</param>
+            <param name="initItems">初始化项，可为 null</param>
+            <returns></returns>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Mvc.CustomHandlerErrorAttribute">
+            <summary>
+            自定义的错误处理，需要启用 Web.Config 中的自定义错误，且在 Application_Start 里面注册到 GlobalFilters.Filters 里面去。
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Mvc.CustomHandlerErrorAttribute.OnException(System.Web.Mvc.ExceptionContext)">
+            <summary>
+            重写当异常发生时
+            </summary>
+            <param name="filterContext">异常上下文</param>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions">
+            <summary>
+            扩展 Html 的 Check 标签
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 checkbox 的 Text 值</param>
+            <param name="funValue">从模型中得到 checkbox 的 Value 值</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 checkbox 的 Text 值</param>
+            <param name="funValue">从模型中得到 checkbox 的 Value 值</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="idPrefix">CheckBox 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 checkbox 的 Text 值</param>
+            <param name="funValue">从模型中得到 checkbox 的 Value 值</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="otherHtmlAttributes">CheckBox 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 checkbox 的 Text 值</param>
+            <param name="funValue">从模型中得到 checkbox 的 Value 值</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="idPrefix">CheckBox 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="otherHtmlAttributes">CheckBox 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 checkbox 的 Text 值</param>
+            <param name="funValue">从模型中得到 checkbox 的 Value 值</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 checkbox 的 Text 值</param>
+            <param name="funValue">从模型中得到 checkbox 的 Value 值</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="idPrefix">CheckBox 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 checkbox 的 Text 值</param>
+            <param name="funValue">从模型中得到 checkbox 的 Value 值</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <param name="otherHtmlAttributes">CheckBox 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 checkbox 的 Text 值</param>
+            <param name="funValue">从模型中得到 checkbox 的 Value 值</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="idPrefix">CheckBox 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <param name="otherHtmlAttributes">CheckBox 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.Collections.Generic.IEnumerable{System.String},GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 checkbox 的 Text 值</param>
+            <param name="funValue">从模型中得到 checkbox 的 Value 值</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="idPrefix">CheckBox 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="initOption">初始项</param>
+            <param name="otherHtmlAttributes">CheckBox 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="idPrefix">CheckBox 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="idPrefix">CheckBox 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="otherHtmlAttributes">CheckBox 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="idPrefix">CheckBox 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="otherHtmlAttributes">CheckBox 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.Collections.Generic.IEnumerable{System.String},GoMusic.Utilities.Web.Html.HtmlOptionResult)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="initOption">初始项</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.Collections.Generic.IEnumerable{System.String},GoMusic.Utilities.Web.Html.HtmlOptionResult)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="idPrefix">CheckBox 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="initOption">初始项</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.Collections.Generic.IEnumerable{System.String},GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="initOption">初始项</param>
+            <param name="otherHtmlAttributes">CheckBox 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBox``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.Collections.Generic.IEnumerable{System.String},GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary>
+            生成 HTML 的 CheckBox 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">CheckBox 标签的 Name</param>
+            <param name="idPrefix">CheckBox 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValues">被选中的值，没有则传入 Null</param>
+            <param name="initOption">初始项</param>
+            <param name="otherHtmlAttributes">CheckBox 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="F:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.NEWLINE">
+            <summary>
+            换行符号
+            </summary>
+        </member>
+        <member name="F:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.COMPARE_IGNORECASE">
+            <summary>
+            比较时是否忽略大小写
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.IsEqualsOrContains(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            判断当前选中的值是否相等 或者 是否包含在里面
+            </summary>
+            <param name="items">选中的值</param>
+            <param name="targetValue">目标值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GetHtmlOptionResultByFuncParams``1(``0,System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            通过“文本委托”、“值委托”、“选中的值”来得到 HtmlOptionResult
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">模型的单个实例</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlCheckBoxExtensions.GenerateHtmlCheckBoxCoreTag(System.Text.StringBuilder,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String,System.String,System.String)">
+            <summary>
+            生成 CheckBox 标签的核心标签
+            </summary>
+            <param name="textAppend">字符串附加器</param>
+            <param name="optionResult">选项的信息</param>
+            <param name="name">名称</param>
+            <param name="idPrefix">id</param>
+            <param name="otherHtmlAttributes">其它的 Html 属性</param>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.UrlExtensions">
+            <summary>
+            Uri 扩展类
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.UrlExtensions.SimpleCombineUrl(System.String,System.String)">
+            <summary>
+            简单合并 Url，通过相加来合并
+            </summary>
+            <param name="url1">第一个 Url</param>
+            <param name="url2">第二个 Url</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.UrlExtensions.Combine(System.Uri,System.String)">
+            <summary>
+            简单合并 Url，通过相加来合并，去掉连接末端和头部端的重复 / 号
+            </summary>
+            <param name="uri"></param>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Html.HtmlRadioExtensions">
+            <summary>
+            扩展 Html 的 Radio 标签
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Radio 的 Text 值</param>
+            <param name="funValue">从模型中得到 Radio 的 Value 值</param>
+            <param name="name">Radio 标签的 Name</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Radio 的 Text 值</param>
+            <param name="funValue">从模型中得到 Radio 的 Value 值</param>
+            <param name="name">Radio 标签的 Name</param>
+            <param name="selectedValue">被选中的值，没有则传入 Null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Radio 的 Text 值</param>
+            <param name="funValue">从模型中得到 Radio 的 Value 值</param>
+            <param name="name">Radio 标签的 Name</param>
+            <param name="idPrefix">Radio 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValue">被选中的值，没有则传入 Null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Radio 的 Text 值</param>
+            <param name="funValue">从模型中得到 Radio 的 Value 值</param>
+            <param name="name">Radio 标签的 Name</param>
+            <param name="idPrefix">Radio 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValue">被选中的值，没有则传入 Null</param>
+            <param name="otherHtmlAttributes">Radio 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Radio 的 Text 值</param>
+            <param name="funValue">从模型中得到 Radio 的 Value 值</param>
+            <param name="name">Radio 标签的 Name</param>
+            <param name="idPrefix">Radio 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValue">被选中的值，没有则传入 Null</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Radio 的 Text 值</param>
+            <param name="funValue">从模型中得到 Radio 的 Value 值</param>
+            <param name="name">Radio 标签的 Name</param>
+            <param name="idPrefix">Radio 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValue">被选中的值，没有则传入 Null</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <param name="otherHtmlAttributes">Radio 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Radio 的 Text 值</param>
+            <param name="funValue">从模型中得到 Radio 的 Value 值</param>
+            <param name="name">Radio 标签的 Name</param>
+            <param name="idPrefix">Radio 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValue">被选中的值，没有则传入 Null</param>
+            <param name="initOption">初始项</param>
+            <param name="otherHtmlAttributes">Radio 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">Radio 标签的 Name</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">Radio 标签的 Name</param>
+            <param name="idPrefix">Radio 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">Radio 标签的 Name</param>
+            <param name="idPrefix">Radio 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValue">被选中的值，没有则传入 Null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">Radio 标签的 Name</param>
+            <param name="idPrefix">Radio 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValue">被选中的值，没有则传入 Null</param>
+            <param name="otherHtmlAttributes">Radio 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">Radio 标签的 Name</param>
+            <param name="idPrefix">Radio 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValue">被选中的值，没有则传入 Null</param>
+            <param name="initOption">初始项</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadio``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary>
+            生成 HTML 的 Radio 标签 
+            </summary>
+            <typeparam name="T">数据源的类型</typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用</param>
+            <param name="name">Radio 标签的 Name</param>
+            <param name="idPrefix">Radio 标签的 Id 前缀，默认的格式是：Id前缀 + 下划线 + 值。传入 null 表示应用默认格式。</param>
+            <param name="selectedValue">被选中的值，没有则传入 Null</param>
+            <param name="initOption">初始项</param>
+            <param name="otherHtmlAttributes">Radio 标签中其他的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="F:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.NEWLINE">
+            <summary>
+            换行符号
+            </summary>
+        </member>
+        <member name="F:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.COMPARE_IGNORECASE">
+            <summary>
+            比较时是否忽略大小写
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.IsEqualsOrContains(System.String,System.String)">
+            <summary>
+            判断当前选中的值是否相等 或者 是否包含在里面
+            </summary>
+            <param name="selectedValue">选中的值</param>
+            <param name="targetValue">目标值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GetHtmlOptionResultByFuncParams``1(``0,System.Func{``0,System.String},System.Func{``0,System.String},System.String)">
+            <summary>
+            通过“文本委托”、“值委托”、“选中的值”来得到 HtmlOptionResult
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">模型的单个实例</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlRadioExtensions.GenerateHtmlRadioCoreTag(System.Text.StringBuilder,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String,System.String,System.String)">
+            <summary>
+            生成 Radio 标签的核心标签
+            </summary>
+            <param name="textAppend">字符串附加器</param>
+            <param name="optionResult">选项的信息</param>
+            <param name="name">名称</param>
+            <param name="idPrefix">id</param>
+            <param name="otherHtmlAttributes">其它的 Html 属性</param>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.CacheAccess">
+            <summary>
+            控制类，用于缓存操作
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.CacheAccess.SaveToCache(System.String,System.Object)">
+            <summary>
+            将对象加入到缓存中
+            </summary>
+            <param name="cacheKey">缓存键</param>
+            <param name="cacheObject">缓存对象</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.CacheAccess.SaveToCache(System.String,System.Object,System.Web.Caching.CacheDependency)">
+            <summary>
+            将对象加入到缓存中
+            </summary>
+            <param name="cacheKey">缓存键</param>
+            <param name="cacheObject">缓存对象</param>
+            <param name="dependency">缓存依赖项</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.CacheAccess.GetFromCache(System.String)">
+            <summary>
+            从缓存中取得对象，不存在则返回null
+            </summary>
+            <param name="cacheKey">缓存键</param>
+            <returns>获取的缓存对象</returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.CacheAccess.RemoveFromCache(System.String)">
+            <summary>
+            从缓存中移除对象，不存在则返回null
+            </summary>
+            <param name="cacheKey">要移除的缓存项的 System.String 标识符。</param>
+            <returns>从 Cache 移除的项。如果未找到键参数中的值，则返回 null。</returns>
+        </member>
+        <member name="T:GoMusic.Utilities.Web.Html.HtmlSelectExtensions">
+            <summary>
+            扩展 Html 的 Select 标签
+            </summary>
+        </member>
+        <member name="F:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.MULTIPLE_KEYWORD">
+            <summary>
+            控制可以让 Select 标签的选择多个的关键字 
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelect``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String)">
+            <summary>
+            生成 HTML 的 Select 标签 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelect``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为空</param>
+            <param name="name">Select 标签的 name，可为空</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelect``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为空</param>
+            <param name="name">Select 标签的 name，可为空</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelect``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为空</param>
+            <param name="name">Select 标签的 name，可为空</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelect``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为空</param>
+            <param name="name">Select 标签的 name，可为空</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelect``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult})">
+            <summary> 
+            生成 HTML 的 Select 标签 
+            </summary> 
+            <param name="dataSource">数据源</param> 
+            <param name="funcInner">获取内部的调用，不能为 null</param> 
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelect``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String)">
+            <summary> 
+            生成 HTML 的 Select 标签 
+            </summary> 
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param> 
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelect``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.String)">
+            <summary> 
+            生成 HTML 的 Select 标签 
+            </summary> 
+            <param name="dataSource">数据源</param> 
+            <param name="funcInner">获取内部的调用，不能为 null</param> 
+            <param name="id">Select 标签的 Id，可为空</param>
+            <param name="name">Select 标签的 Name，可为空</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param> 
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelect``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult)">
+            <summary> 
+            生成 HTML 的 Select 标签 
+            </summary> 
+            <param name="dataSource">数据源</param> 
+            <param name="funcInner">获取内部的调用，不能为 null</param> 
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <returns></returns> 
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelect``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary> 
+            生成 HTML 的 Select 标签
+            </summary> 
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param> 
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param> 
+            <returns></returns> 
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultiple``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultiple``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为空</param>
+            <param name="name">Select 标签的 name，可为空</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultiple``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为空</param>
+            <param name="name">Select 标签的 name，可为空</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultiple``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为空</param>
+            <param name="name">Select 标签的 name，可为空</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultiple``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为空</param>
+            <param name="name">Select 标签的 name，可为空</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultiple``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult})">
+            <summary> 
+            生成 HTML 的 Select 标签（带 multiple）
+            </summary> 
+            <param name="dataSource">数据源</param> 
+            <param name="funcInner">获取内部的调用，不能为 null</param> 
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultiple``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String)">
+            <summary> 
+            生成 HTML 的 Select 标签（带 multiple）
+            </summary> 
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param> 
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultiple``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.String)">
+            <summary> 
+            生成 HTML 的 Select 标签（带 multiple）
+            </summary> 
+            <param name="dataSource">数据源</param> 
+            <param name="funcInner">获取内部的调用，不能为 null</param> 
+            <param name="id">Select 标签的 Id，可为空</param>
+            <param name="name">Select 标签的 Name，可为空</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param> 
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultiple``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult)">
+            <summary> 
+            生成 HTML 的 Select 标签（带 multiple）
+            </summary> 
+            <param name="dataSource">数据源</param> 
+            <param name="funcInner">获取内部的调用，不能为 null</param> 
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <returns></returns> 
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultiple``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary> 
+            生成 HTML 的 Select 标签（带 multiple）
+            </summary> 
+            <param name="dataSource">数据源</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param> 
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param> 
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,System.String},System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,System.String},System.String,System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult})">
+            <summary>
+            生成 HTML 的 Select 标签（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult)">
+            <summary>
+            生成 HTML 的 Select 标签（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultipleGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultipleGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultipleGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultipleGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOptionText">初始化 Option 的 Text 值</param>
+            <param name="initOptionValue">初始化 Option 的 Value 值</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultipleGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultipleGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult})">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultipleGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultipleGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultipleGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectMultipleGroup``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,System.Boolean},System.Func{``0,GoMusic.Utilities.Web.Html.HtmlOptionResult},System.String,System.String,GoMusic.Utilities.Web.Html.HtmlOptionResult,System.String)">
+            <summary>
+            生成 HTML 的 Select 标签（带 multiple）（带 optgroup）（PS：最大且只支持 2 级目录）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataSource">数据源</param>
+            <param name="funGetParentPredicate">满足父类（即：一级菜单）的条件，比如：d => d.ParentId == 0 </param>
+            <param name="funRelationsWithParent">子类和父类的关联条件，比如：(c, p) => c.ParentId == p.Id，参数 c、p 分别表示子类和父类。</param>
+            <param name="funcInner">获取内部的调用，不能为 null</param>
+            <param name="id">Select 标签的 Id，可为 null</param>
+            <param name="name">Select 标签的 Name，可为 null</param>
+            <param name="initOption">初始化 Option，为 null 表示没有初始项</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <returns></returns>
+        </member>
+        <member name="F:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.NEWLINE">
+            <summary>
+            换行符号
+            </summary>
+        </member>
+        <member name="F:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.COMPARE_IGNORECASE">
+            <summary>
+            比较时是否忽略大小写
+            </summary>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GetHtmlOptionResultByFuncParams``1(``0,System.Func{``0,System.String},System.Func{``0,System.String},System.String)">
+            <summary>
+            通过“文本委托”、“值委托”、“选中的值”来得到 HtmlOptionResult
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">模型的单个实例</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GetHtmlOptionResultByFuncParams``1(``0,System.Func{``0,System.String},System.Func{``0,System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            通过“文本委托”、“值委托”、“选中的值”来得到 HtmlOptionResult
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">模型的单个实例</param>
+            <param name="funText">从模型中得到 Select Option 的 Text 值</param>
+            <param name="funValue">从模型中得到 Select Option 的 Value 值</param>
+            <param name="selectedValue">选中的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.IsEqualsOrContains(System.String,System.String)">
+            <summary>
+            判断当前选中的值是否相等 或者 是否包含在里面
+            </summary>
+            <param name="source">选中的值</param>
+            <param name="targetValue">目标值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.IsEqualsOrContains(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            判断当前选中的值是否相等 或者 是否包含在里面
+            </summary>
+            <param name="items">选中的值</param>
+            <param name="targetValue">目标值</param>
+            <returns></returns>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectBeginTag(System.String,System.String,System.String,System.Text.StringBuilder)">
+            <summary>
+            生成 Select 标签的开始标签
+            </summary>
+            <param name="id">Select 标签的 Id，可为空</param>
+            <param name="name">Select 标签的 Name，可为空</param>
+            <param name="otherHtmlAttributes">其他的 select 标签中的 html 属性</param>
+            <param name="textAppend">字符串附加器</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectEndTag(System.Text.StringBuilder)">
+            <summary>
+            生成 Select 标签的结束标签
+            </summary>
+            <param name="textAppend">字符串附加器</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectCoreOption(GoMusic.Utilities.Web.Html.HtmlOptionResult,System.Text.StringBuilder)">
+            <summary>
+            生成核心的 Select 标签的子 Option 标签
+            </summary>
+            <param name="optionResult">当前 option</param>
+            <param name="textAppend">字符串附加器</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroupBeginTag(GoMusic.Utilities.Web.Html.HtmlOptionResult,System.Text.StringBuilder)">
+            <summary>
+            生成 Select 标签下的 optgroup 的开始标签
+            </summary>
+            <param name="optionResult">选项的信息</param>
+            <param name="textAppend">字符串附加器</param>
+        </member>
+        <member name="M:GoMusic.Utilities.Web.Html.HtmlSelectExtensions.GenerateHtmlSelectGroupEndTag(System.Text.StringBuilder)">
+            <summary>
+            生成 Select 标签下的 optgroup 的结束标签
+            </summary>
+            <param name="textAppend">字符串附加器</param>
+        </member>
+    </members>
+</doc>

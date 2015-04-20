@@ -1,0 +1,14 @@
+E:\ShipManagementV1.0\ShipManagement\SM.Entities\bin\Debug\SM.Entities.dll
+E:\ShipManagementV1.0\ShipManagement\SM.Entities\bin\Debug\SM.Entities.pdb
+E:\ShipManagementV1.0\ShipManagement\SM.Entities\bin\Debug\PetaPoco.dll
+E:\ShipManagementV1.0\ShipManagement\SM.Entities\bin\Debug\PetaPoco.pdb
+E:\ShipManagementV1.0\ShipManagement\SM.Entities\obj\Debug\ResolveAssemblyReference.cache
+E:\ShipManagementV1.0\ShipManagement\SM.Entities\obj\Debug\SM.Entities.dll
+E:\ShipManagementV1.0\ShipManagement\SM.Entities\obj\Debug\SM.Entities.pdb
+G:\ShipManagement_MUI\ShipManagerment_MUI\SM.Entities\bin\Debug\SM.Entities.dll
+G:\ShipManagement_MUI\ShipManagerment_MUI\SM.Entities\bin\Debug\SM.Entities.pdb
+G:\ShipManagement_MUI\ShipManagerment_MUI\SM.Entities\bin\Debug\PetaPoco.dll
+G:\ShipManagement_MUI\ShipManagerment_MUI\SM.Entities\bin\Debug\PetaPoco.pdb
+G:\ShipManagement_MUI\ShipManagerment_MUI\SM.Entities\obj\Debug\SM.Entities.csprojResolveAssemblyReference.cache
+G:\ShipManagement_MUI\ShipManagerment_MUI\SM.Entities\obj\Debug\SM.Entities.dll
+G:\ShipManagement_MUI\ShipManagerment_MUI\SM.Entities\obj\Debug\SM.Entities.pdb

@@ -1,0 +1,23 @@
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\bin\Debug\PetaPoco.dll.config
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\bin\Debug\PetaPoco.dll
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\bin\Debug\PetaPoco.pdb
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\bin\Debug\Npgsql.dll
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\bin\Debug\System.Data.SqlServerCe.dll
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\obj\Debug\PetaPoco.dll
+D:\GTA项目\虚拟仿真主配置库\1.VPP\13.Code Management\Branches\GTA.Forum_V0.1\1.Code\PetaPoco\obj\Debug\PetaPoco.pdb
+E:\ShipManagementV1.0\ShipManagement\PetaPoco\bin\Debug\PetaPoco.dll.config
+E:\ShipManagementV1.0\ShipManagement\PetaPoco\bin\Debug\PetaPoco.dll
+E:\ShipManagementV1.0\ShipManagement\PetaPoco\bin\Debug\PetaPoco.pdb
+E:\ShipManagementV1.0\ShipManagement\PetaPoco\bin\Debug\Npgsql.dll
+E:\ShipManagementV1.0\ShipManagement\PetaPoco\bin\Debug\System.Data.SqlServerCe.dll
+E:\ShipManagementV1.0\ShipManagement\PetaPoco\obj\Debug\ResolveAssemblyReference.cache
+E:\ShipManagementV1.0\ShipManagement\PetaPoco\obj\Debug\PetaPoco.dll
+E:\ShipManagementV1.0\ShipManagement\PetaPoco\obj\Debug\PetaPoco.pdb
+G:\ShipManagement_MUI\ShipManagerment_MUI\PetaPoco\bin\Debug\PetaPoco.dll.config
+G:\ShipManagement_MUI\ShipManagerment_MUI\PetaPoco\bin\Debug\PetaPoco.dll
+G:\ShipManagement_MUI\ShipManagerment_MUI\PetaPoco\bin\Debug\PetaPoco.pdb
+G:\ShipManagement_MUI\ShipManagerment_MUI\PetaPoco\bin\Debug\Npgsql.dll
+G:\ShipManagement_MUI\ShipManagerment_MUI\PetaPoco\bin\Debug\System.Data.SqlServerCe.dll
+G:\ShipManagement_MUI\ShipManagerment_MUI\PetaPoco\obj\Debug\PetaPoco.csprojResolveAssemblyReference.cache
+G:\ShipManagement_MUI\ShipManagerment_MUI\PetaPoco\obj\Debug\PetaPoco.dll
+G:\ShipManagement_MUI\ShipManagerment_MUI\PetaPoco\obj\Debug\PetaPoco.pdb
