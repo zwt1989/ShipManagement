@@ -84,6 +84,9 @@
     <Compile Include="Ship\WinAddShip.xaml.cs">
       <DependentUpon>WinAddShip.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ship\WinAddShipShares.xaml.cs">
+      <DependentUpon>WinAddShipShares.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ship\WinShipSharesList.xaml.cs">
       <DependentUpon>WinShipSharesList.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ship\WinAddShip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ship\WinAddShipShares.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

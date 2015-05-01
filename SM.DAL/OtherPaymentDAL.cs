@@ -48,6 +48,12 @@ namespace SM.DAL
             return Convert.ToInt32(obj) > 0;
         }
 
+        /// <summary>
+        /// 获取其他收支项列表
+        /// </summary>
+        /// <param name="orderEnums"></param>
+        /// <param name="searchEntity"></param>
+        /// <returns></returns>
         public List<OtherPayment> GetList(IEnumerable<OtherPaymentEnum> orderEnums, SearchOtherPayment searchEntity)
         {
             string sqlStr =

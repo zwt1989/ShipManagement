@@ -17,8 +17,18 @@ namespace SM.Entities.Model
         [Column]
         public int ShipId { get; set; }
 
+        /// <summary>
+        /// 船名
+        /// </summary>
+        public string ShipName { get; set; }
+
         [Column]
         public int ShareHolderId { get; set; }
+
+        /// <summary>
+        /// 股权人姓名
+        /// </summary>
+        public string ShareHolderName { get; set; }
 
         [Column]
         public int SharesCount { get; set; }

@@ -24,6 +24,36 @@ namespace SM.BLL
         }
 
         /// <summary>
+        /// 根据Id获取船实体
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Ship GetShipById(int id)
+        {
+            return _shipDAL.GetShipById(id);
+        }
+
+        /// <summary>
+        /// 修改轮船实体
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public bool UpdateShip(Ship item)
+        {
+            return _shipDAL.UpdateShip(item);
+        }
+
+        /// <summary>
+        /// 删除轮船实体
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool DeleteShip(int id)
+        {
+            return _shipDAL.DeleteShip(id);
+        }
+
+        /// <summary>
         /// 分页获取轮船列表
         /// </summary>
         /// <param name="pageIndex"></param>

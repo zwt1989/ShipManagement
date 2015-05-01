@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="800" d:DesignWidth="600">
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
             <Grid>
@@ -24,11 +24,22 @@
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Command="{Binding Path=}" Content="修改" />
+                                    <Button Command="Delete" CommandParameter="{Binding Id}" Content="删除" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="New" CommandParameter="{Binding Id}" Content="编辑" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
+                    <DataGrid.CommandBindings>
+                        <CommandBinding Command="Delete" Executed="DeleteShip_OnExecuted"></CommandBinding>
+                        <CommandBinding Command="New" Executed="Modify_OnExecuted"></CommandBinding>
+                    </DataGrid.CommandBindings>
                 </DataGrid>
                 <Grid Margin="0,50,0,0" Grid.Row="2">
                     <Button Content="上一页" Height="28" HorizontalAlignment="Right" Margin="0,0,200,0" Name="btnPrePage" VerticalAlignment="Bottom" Width="73" Click="btnPrePage_Click" />

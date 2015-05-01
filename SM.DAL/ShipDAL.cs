@@ -49,7 +49,21 @@ namespace SM.DAL
         }
 
         /// <summary>
-        /// 获取货物类型列表
+        /// 删除轮船实体
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool DeleteShip(int id)
+        {
+            using (var db = DbInstance.CreateDataBase())
+            {
+                var obj= db.Delete<Ship>(id);
+                return Convert.ToInt32(obj) > 0;
+            }
+        }
+
+        /// <summary>
+        /// 获取轮船列表
         /// </summary>
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>

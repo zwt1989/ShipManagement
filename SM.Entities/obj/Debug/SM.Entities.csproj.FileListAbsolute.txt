@@ -12,3 +12,10 @@ G:\ShipManagement_MUI\ShipManagerment_MUI\SM.Entities\bin\Debug\PetaPoco.pdb
 G:\ShipManagement_MUI\ShipManagerment_MUI\SM.Entities\obj\Debug\SM.Entities.csprojResolveAssemblyReference.cache
 G:\ShipManagement_MUI\ShipManagerment_MUI\SM.Entities\obj\Debug\SM.Entities.dll
 G:\ShipManagement_MUI\ShipManagerment_MUI\SM.Entities\obj\Debug\SM.Entities.pdb
+\\gta-daxun\ShipManagement\SM.Entities\bin\Debug\SM.Entities.dll
+\\gta-daxun\ShipManagement\SM.Entities\bin\Debug\SM.Entities.pdb
+\\gta-daxun\ShipManagement\SM.Entities\bin\Debug\PetaPoco.dll
+\\gta-daxun\ShipManagement\SM.Entities\bin\Debug\PetaPoco.pdb
+\\gta-daxun\ShipManagement\SM.Entities\obj\Debug\SM.Entities.csprojResolveAssemblyReference.cache
+\\gta-daxun\ShipManagement\SM.Entities\obj\Debug\SM.Entities.dll
+\\gta-daxun\ShipManagement\SM.Entities\obj\Debug\SM.Entities.pdb

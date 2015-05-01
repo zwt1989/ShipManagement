@@ -8,10 +8,50 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
-            <StackPanel MinWidth="200">
-                <TextBlock Text="BASIC PAGE" Style="{StaticResource Heading2}" />
-                <TextBlock Text="Content goes here" />
-            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Name="btnAddShipShares"  Content="新增" Grid.Row="0" Click="btnAddShipShares_OnClick"/>
+                <DataGrid Name="shipSharesListGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" Grid.Row="1">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="船名" Binding="{Binding ShipName}" />
+                        <DataGridTextColumn Header="股权人" Binding="{Binding ShareHolderName}" />
+                        <DataGridTextColumn Header="股份数" Binding="{Binding SharesCount}" />
+                        <DataGridTextColumn Header="金额" Binding="{Binding MoneyCount}" />
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="Delete" CommandParameter="{Binding Id}" Content="删除" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="New" CommandParameter="{Binding Id}" Content="编辑" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    <DataGrid.CommandBindings>
+                        <CommandBinding Command="Delete" Executed="DeleteShares_OnExecuted"></CommandBinding>
+                        <CommandBinding Command="New" Executed="Modify_OnExecuted"></CommandBinding>
+                    </DataGrid.CommandBindings>
+                </DataGrid>
+                <Grid Margin="0,50,0,0" Grid.Row="2">
+                    <Button Content="上一页" Height="28" HorizontalAlignment="Right" Margin="0,0,200,0" Name="btnPrePage" VerticalAlignment="Bottom" Width="73" Click="btnPrePage_Click" />
+                    <Button Content="下一页" Height="28" HorizontalAlignment="Right" Margin="0,0,115,0" Name="btnNextPage" VerticalAlignment="Bottom" Width="73" Click="btnNextPage_Click" />
+                    <Label Content="1" HorizontalAlignment="Right" Margin="0,0,330,0" Name="lblPageNo" VerticalAlignment="Bottom" />
+                    <Label Content="/" HorizontalAlignment="Right" Margin="0,0,320,0" VerticalAlignment="Bottom"/>
+                    <Label Content="1" HorizontalAlignment="Right" Margin="0,0,310,0" Name="lblTotalPage" VerticalAlignment="Bottom" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="0,0,75,0" Name="tbPageNo" VerticalAlignment="Bottom" Width="23" RenderTransformOrigin="0.509,0.339" />
+                    <Button Content="GO" HorizontalAlignment="Right" Margin="0,0,10,0" Name="btnPageGo" VerticalAlignment="Bottom" Click="btnPageGo_Click" />
+
+                </Grid>
+            </Grid>
         </ScrollViewer>
     </Grid>
 </UserControl>

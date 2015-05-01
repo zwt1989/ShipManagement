@@ -108,7 +108,23 @@ namespace ShipManagerment_MUI.Ship
 
         private void btnAddShip_OnClick(object sender, RoutedEventArgs e)
         {
-            Window addShipWindow=new WinAddShip();
+            WinAddShip addShipWindow = new WinAddShip();
+            //将当前页面对象赋给弹出窗,用于反向调用
+            addShipWindow.parentWin = this;
+            addShipWindow.Show();
+        }
+
+        private void DeleteShip_OnExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            _shipBLL.DeleteShip((int)e.Parameter);
+            ShipListDataBind(1);
+        }
+
+        private void Modify_OnExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            WinAddShip addShipWindow = new WinAddShip((int)e.Parameter);
+            //将当前页面对象赋给弹出窗,用于反向调用
+            addShipWindow.parentWin = this;
             addShipWindow.Show();
         }
     }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\ShipManagement\ShipManagerment_MUI\obj\Debug\
+G:\ShipManagement\ShipManagerment_MUI\obj\Debug\
 ShipManagerment_MUI
 none
 false
 DEBUG;TRACE
-D:\ShipManagement\ShipManagerment_MUI\App.xaml
-15-654092847
+G:\ShipManagement\ShipManagerment_MUI\App.xaml
+1633288697
 
-21-1817305228
-16-532840215
-Cargo\ProduceRecordPage.xaml;Cargo\WinCargoTypeList.xaml;Cargo\WinProduceRecord.xaml;Index\Index.xaml;MainWindow.xaml;OtherPayment\OtherPaymentPage.xaml;OtherPayment\WinOtherPayment.xaml;ReportForms\Index.xaml;Ship\Index.xaml;Ship\ShipListPage.xaml;Ship\ShipSharesListPage.xaml;Ship\WinAddShip.xaml;Ship\WinShipSharesList.xaml;Staff\StaffListPage.xaml;Staff\WinStaffList.xaml;
+222008821512
+16226482178
+Cargo\ProduceRecordPage.xaml;Cargo\WinCargoTypeList.xaml;Cargo\WinProduceRecord.xaml;Index\Index.xaml;MainWindow.xaml;OtherPayment\OtherPaymentPage.xaml;OtherPayment\WinOtherPayment.xaml;ReportForms\Index.xaml;Ship\Index.xaml;Ship\ShipListPage.xaml;Ship\ShipSharesListPage.xaml;Ship\WinAddShip.xaml;Ship\WinAddShipShares.xaml;Ship\WinShipSharesList.xaml;Staff\StaffListPage.xaml;Staff\WinStaffList.xaml;
 
 False
 

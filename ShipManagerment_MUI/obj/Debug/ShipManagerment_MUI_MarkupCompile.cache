@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\ShipManagement\ShipManagerment_MUI\obj\Debug\
+\\gta-daxun\ShipManagement\ShipManagerment_MUI\obj\Debug\
 ShipManagerment_MUI
 none
 false
 DEBUG;TRACE
-D:\ShipManagement\ShipManagerment_MUI\App.xaml
+\\gta-daxun\ShipManagement\ShipManagerment_MUI\App.xaml
 15-654092847
 
 17-706621189
-16-532840215
+16-888302482
 Cargo\ProduceRecordPage.xaml;Cargo\WinCargoTypeList.xaml;Cargo\WinProduceRecord.xaml;Index\Index.xaml;MainWindow.xaml;OtherPayment\OtherPaymentPage.xaml;OtherPayment\WinOtherPayment.xaml;ReportForms\Index.xaml;Ship\Index.xaml;Ship\ShipListPage.xaml;Ship\ShipSharesListPage.xaml;Ship\WinAddShip.xaml;Ship\WinShipSharesList.xaml;Staff\StaffListPage.xaml;Staff\WinStaffList.xaml;
 
 False
